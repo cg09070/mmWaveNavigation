@@ -1,0 +1,85 @@
+% SDK Parameters
+% See the SDK user's guide for more information
+% "C:\ti\mmwave_sdk_[VER]\docs\mmwave_sdk_user_guide.pdf"
+
+    sensorStop
+    flushCfg
+
+% the following values can not be changed
+    dfeDataOutputMode 1
+    channelCfg 15 7 0
+    adcCfg 2 1
+    adcbufCfg -1 0 1 1 1
+    lowPower 0 0
+
+% Detection Layer Parameters
+
+% 10th: number of samples. Default: 96, 3DCM: 64
+% 11th: sampling frequency. D: 2950, CM: 2000
+    profileCfg 0 60.75 30.00 25.00 59.10 394758 0 54.71 1 96 2950.00 2 1 36
+
+    chirpCfg 0 0 0 0 0 0 0 1
+    chirpCfg 1 1 0 0 0 0 0 2
+    chirpCfg 2 2 0 0 0 0 0 4
+
+% 3rd: loops per frame. D: 96 CM: 224
+% 5th: frame periodicity. D: 55, WM: 120
+    frameCfg 0 2 96 0 55.00 1 0
+
+ % 2nd-5th: trim point clouds range(f/r) and angle(l/r) D: 4 4 2 2 CM: 10 1 1 1
+ % 6-9th: reference window/guard size (l/r). D: 8 12 4 8 CM: 8 8 6 4
+ % 10-12th: range/angle/sidelobe threshold. D: 5 8 0.4 CM: 4 6 0.5
+    dynamicRACfarCfg -1 4 4 2 2 8 12 4 12 5.00 8.00 0.40 1 1
+    staticRACfarCfg -1 6 2 2 2 8 8 6 4 8.00 15.00 0.30 0 0
+
+% subFrameIdx angleSeachStep rangeAngleDiagonalLoading rangeAngleEstMethod dopplerEstMethod
+    dynamicRangeAngleCfg -1 0.75 0.0010 1 0
+
+% Id elevSearch angDiagLoading maxNpeak2Search peakExpSamp elevOnly sidelobeThre peakExpRelThre peakExpSNRThre
+    dynamic2DAngleCfg -1 3.0 0.0300 1 0 1 0.30 0.85 8.00
+
+% id staticProcEnabled staticAzimStepDeciFactor staticElevStepDeciFactor
+    staticRangeAngleCfg -1 1 8 2
+
+% virtual antennae physical location index
+    antGeometry0 -1 -1 0 0 -3 -3 -2 -2 -1 -1 0 0
+    antGeometry1 -1 0 -1 0 -3 -2 -3 -2 -3 -2 -3 -2
+
+% antennae phase rotation
+    antPhaseRot 1 -1 1 -1 1 -1 1 -1 1 -1 1 -1
+
+% 2nd-3rd: azimuth and elevation fov. D: 70 20, CM: 60 60
+    fovCfg -1 60.0 60.0
+
+    compRangeBiasAndRxChanPhase 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0
+
+% Tracker Layer Parameters
+% xleft xright ynear yfar zfloor zceiling
+%
+    staticBoundaryBox -1 1 2 4 0 3
+    boundaryBox -4 4 0.5 6 0 3
+    zoneDef 1 -1 1 2 4 0 3
+    zoneDef 2 -0.3 0.3 0.5 2 0 3
+    presenceBoundaryBox -4 4 0.5 6 0 3
+
+% height elevtilt angletilt
+    sensorPosition 0.82 0 0
+
+% gain maxwidth maxdepth maxheight maxvelocity. D: 3 2 2 3 4, CM: 3 2 2 3 4
+    gatingParam 3 2 2 3 4
+
+% det2act det2free act2free stat2free exit2free sleep2free. D:3 3 6 500 5 6000, CM: 3 3 6 20 3 1000
+    stateParam 3 3 12 500 5 6000
+
+% snrThre snrThreObscured velThre pointsThre maxDistanceThre maxVelThre. D: 40 100 0.1 20 0.5 20, CM: 20 20 0.5 20 1.5 20
+    allocationParam 20 100 0.1 20 0.5 20
+
+% X Y Z. D: 0.1 0.1 0.1, CM: 1 0.1 1
+    maxAcceleration 0.1 0.1 0.1
+
+% enable initial maxPoints maxTracks maxRadialVel radialVelResolution deltaT boresightEnable. D: 1 4 800 30 46 96 55 CM: 1 4 800 20 37 33 120 1
+    trackingCfg 1 2 800 4 46 96 55
+    
+    presenceBoundaryBox -4 4 0.5 6 0 3
+
+    sensorStart
